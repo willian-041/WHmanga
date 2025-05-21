@@ -1,5 +1,6 @@
 <?php include('includes/header.php'); ?>
 
+
 <!-- Conteúdo da página -->
 <div class="container mt-5">
 
@@ -42,6 +43,15 @@
         </div>
 
         <!-- Card 3 -->
+        <div class="manga-card d-flex align-items-center mb-3">
+          <img src="img/attack_on_titan.png" alt="Capa do Mangá" class="manga-cover me-3">
+          <div>
+            <h5 class="mb-1">Attack on Titan</h5>
+            <p class="manga-description"></p>
+            <a href="#" class="btn btn-sm btn-outline-light">Ler Agora</a>
+          </div>
+        </div>
+
         <div class="manga-card d-flex align-items-center mb-3">
           <img src="img/attack_on_titan.png" alt="Capa do Mangá" class="manga-cover me-3">
           <div>
