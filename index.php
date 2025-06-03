@@ -185,8 +185,8 @@
       <!-- Paginação -->
       <div class="flex items-center justify-center space-x-2 bg-transparente py-4">
         <?php if ($paginaAtual > 1): ?>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=1">Primeira</a>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
+          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php3?pagina=1">Primeira</a>
+          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
         <?php else: ?>
           <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Primeira</button>
           <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Anterior</button>

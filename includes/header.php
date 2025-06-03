@@ -1,5 +1,5 @@
 <?php
-  $basePath = (strpos($_SERVER['PHP_SELF'], 'paginas/') !== false) ? '../' : '';
+  $basePath = (strpos($_SERVER['PHP_SELF'], 'paginas/') !== false) || strpos($_SERVER['PHP_SELF'],'mangas/') ? '../' : '';
 ?>
 
 <!DOCTYPE html>
