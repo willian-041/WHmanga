@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 
 <div class="container mt-5">
     <h2 class="text-center mb-4 text-white">One Piece - Volumes</h2>
@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Volume 1</h5>
                     <p class="card-text">O início da jornada de Luffy em busca do One Piece.</p>
-                    <a href=" ../volume.php?manga=one-piece&vol=1" class="btn btn-outline-light btn-sm">Ler Volume</a>
+                    <a href="./vol1.php" class="btn btn-outline-light btn-sm">Ler Volume</a>
                     " class="btn btn-outline-light btn-sm">Ler Volume</a>
                 </div>
             </div>
@@ -43,4 +43,4 @@
     </div>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

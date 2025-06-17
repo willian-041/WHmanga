@@ -29,7 +29,7 @@
           <div>
             <h5 class="mb-1">One Piece</h5>
             <p class="manga-description"></p>
-            <a href="mangas/one-piece.php" class="btn btn-sm btn-outline-light">Ler Agora</a>
+            <a href="mangas/one-piece/one-piece.php" class="btn btn-sm btn-outline-light">Ler Agora</a>
           </div>
         </div>
 

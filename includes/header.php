@@ -1,5 +1,13 @@
 <?php
-  $basePath = (strpos($_SERVER['PHP_SELF'], 'paginas/') !== false) || strpos($_SERVER['PHP_SELF'],'mangas/') ? '../' : '';
+  $currentPath = $_SERVER['PHP_SELF'];
+
+  if (strpos($currentPath, '/mangas/') !== false) {
+    $basePath = '../../';
+  } elseif (strpos($currentPath, '/paginas/') !== false) {
+    $basePath = '../';
+  } else {
+    $basePath = '';
+  };
 ?>
 
 <!DOCTYPE html>
