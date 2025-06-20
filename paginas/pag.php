@@ -40,46 +40,44 @@ $mangas = array_slice($todosMangas, $offset, $mangasPorPagina);
             <?php endfor; ?>
 
             <!-- Paginação dinâmica -->
-            <div class="d-flex justify-content-center mt-4">
-                <nav>
-                    <ul class="pagination justify-content-center">
-                        <!-- Primeira -->
-                        <li class="page-item <?= ($paginaAtual <= 1) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="../index.php">Primeira</a>
-                        </li>
+            <div class="container text-center">
+                <div class="flex items-center justify-center flex-wrap space-x-2 bg-transparente py-4">
+                    <!-- Botão Primeira -->
+                    <?php if ($paginaAtual > 1): ?>
+                        <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/index.php">Primeira</a>
+                        <?php if ($paginaAtual == 2): ?>
+                            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/index.php">Anterior</a>
+                        <?php else: ?>
+                            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Primeira</button>
+                        <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Anterior</button>
+                    <?php endif; ?>
 
-                        <!-- Anterior -->
-                        <li class="page-item <?= ($paginaAtual <= 1) ? 'disabled' : '' ?>">
-                            <?php if ($paginaAtual == 2): ?>
-                                <a class="page-link" href="../index.php">Anterior</a>
-                            <?php else: ?>
-                                <a class="page-link" href="?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
-                            <?php endif; ?>
-                        </li>
+                    <!-- Números das páginas -->
+                    <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                        <?php if ($i == $paginaAtual): ?>
+                            <button class="bg-green-600 text-white px-4 py-1 rounded"><?= $i ?></button>
+                        <?php elseif ($i == 1): ?>
+                            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/index.php"><?= $i ?></a>
+                        <?php else: ?>
+                            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $i ?>"><?= $i ?></a>
+                        <?php endif; ?>
+                    <?php endfor; ?>
 
-                        <!-- Números de página -->
-                        <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
-                            <li class="page-item <?= ($i == $paginaAtual) ? 'active' : '' ?>">
-                                <?php if ($i == 1): ?>
-                                    <a class="page-link" href="../index.php"><?= $i ?></a>
-                                <?php else: ?>
-                                    <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
-                                <?php endif; ?>
-                            </li>
-                        <?php endfor; ?>
+                    <!-- Botão Próxima -->
+                    <?php if ($paginaAtual < $totalPaginas): ?>
+                        <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $paginaAtual + 1 ?>">Próxima</a>
+                        <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $totalPaginas ?>">Última</a>
+                    <?php else: ?>
+                        <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Próxima</button>
+                        <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Última</button>
+                    <?php endif; ?>
 
-                        <!-- Próxima -->
-                        <li class="page-item <?= ($paginaAtual >= $totalPaginas) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?pagina=<?= min($totalPaginas, $paginaAtual + 1) ?>">Próxima</a>
-                        </li>
-
-                        <!-- Última -->
-                        <li class="page-item <?= ($paginaAtual >= $totalPaginas) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?pagina=<?= $totalPaginas ?>">Última</a>
-                        </li>
-                    </ul>
-
-                </nav>
+                    <!-- Total de itens -->
+                    <span class="text-gray-400 ml-4"><?= $totalMangas ?> itens</span>
+                </div>
             </div>
 
         </div>

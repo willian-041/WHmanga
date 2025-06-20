@@ -65,7 +65,7 @@
     </div>
 
     <!-- Coluna direita: Carrossel -->
-    <div class="col-md-7">
+    <div class="col-md-6 col-lg-6">
       <h2 class="mb-4 text-white">Novidades</h2>
       <div class="manga-carousel-container">
         <div id="mangaCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -184,6 +184,7 @@
       <?php endfor; ?>
 
       <!-- Paginação -->
+       <div class="container text-center">
       <div class="flex items-center justify-center space-x-2 bg-transparente py-4">
         <?php if ($paginaAtual > 1): ?>
           <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php3?pagina=1">Primeira</a>
@@ -210,6 +211,7 @@
         <?php endif; ?>
 
         <span class="text-gray-400 ml-4"><?= $totalMangas ?> itens</span>
+        </div>
       </div>
     </div>
   </div>

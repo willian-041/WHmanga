@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var myCarousel = document.querySelector('#mangaCarousel');
   var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 8000,
+    interval: 5000,
     ride: 'carousel'
   });
