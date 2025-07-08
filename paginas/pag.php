@@ -29,7 +29,9 @@ $mangas = array_slice($todosMangas, $offset, $mangasPorPagina);
                                 <?php foreach ($manga['capitulos'] as $capitulo): ?>
                                     <div class="manga-chapter">
                                         <span class="chapter-number">Capítulo <?= $capitulo['numero'] ?></span>
-                                        <span class="chapter-time"><?= $capitulo['tempo'] ?></span>
+                                        <span class="chapter-time" data-time="<?= $capitulo['data'] ?>">
+                                            <?= isset($capitulo['tempo']) && $capitulo['tempo'] ? $capitulo['tempo'] : '' ?>
+                                        </span>
                                         <span class="chapter-icon">🟡</span>
                                     </div>
                                 <?php endforeach; ?>

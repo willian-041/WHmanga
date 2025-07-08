@@ -1,4 +1,4 @@
-<?php include('includes/header.php');?>
+<?php include('includes/header.php'); ?>
 
 
 
@@ -10,7 +10,7 @@
 
     <!-- Coluna esquerda: Lista de mangás -->
     <div class="col-md-5">
-      <h2 class="mb-4 text-white">Top 10 Global</h2>
+      <h2 class="mb-4 text-white">Top 5 Global</h2>
 
       <div class="manga-feed p-3">
         <!-- Card 0 -->
@@ -19,7 +19,7 @@
           <div>
             <h5 class="mb-1">Dragon Ball</h5>
             <p class="manga-description"></p>
-            <a href="#" class="btn btn-sm btn-outline-light">Ler Agora</a>
+            <a href="mangas/dragon-ball/dragon-ball.php" class="btn btn-sm btn-outline-light">Ler Agora</a>
           </div>
         </div>
 
@@ -49,14 +49,14 @@
           <div>
             <h5 class="mb-1">Attack on Titan</h5>
             <p class="manga-description"></p>
-            <a href="#" class="btn btn-sm btn-outline-light">Ler Agora</a>
+            <a href="mangas/attack-on-titan/attack-on-titan.php" class="btn btn-sm btn-outline-light">Ler Agora</a>
           </div>
         </div>
 
         <div class="manga-card d-flex align-items-center mb-3">
-          <img src="img/attack_on_titan.png" alt="Capa do Mangá" class="manga-cover me-3">
+          <img src="img/fate_1.jpg" alt="Capa do Mangá" class="manga-cover me-3">
           <div>
-            <h5 class="mb-1">Attack on Titan</h5>
+            <h5 class="mb-1">Fate</h5>
             <p class="manga-description"></p>
             <a href="#" class="btn btn-sm btn-outline-light">Ler Agora</a>
           </div>
@@ -167,14 +167,14 @@
           <?php for ($j = $i; $j < $i + 3 && $j < count($mangasPagina); $j++): ?>
             <?php $manga = $mangasPagina[$j]; ?>
             <div class="col-md-4 d-flex justify-content-center">
-              <div class="manga-card">
+              <div class="manga-card w-100" onclick="window.location.href='<?= $manga['link'] ?>'" style="cursor: pointer;">
                 <img src="<?= $manga['capa'] ?>" class="manga-cover" alt="<?= $manga['titulo'] ?>">
                 <span class="manga-title"><?= $manga['titulo'] ?></span>
                 <?php foreach ($manga['capitulos'] as $capitulo): ?>
                   <div class="manga-chapter">
                     <span class="chapter-number">Capítulo <?= $capitulo['numero'] ?></span>
-                    <span class="chapter-time"><?= $capitulo['tempo'] ?></span>
-                    <span class="chapter-icon">🟡</span>
+                    <span class="chapter-time"><?= $capitulo['tempo'] ?? '' ?></span>
+                    <span class="chapter-icon">🔘</span>
                   </div>
                 <?php endforeach; ?>
               </div>
@@ -184,33 +184,33 @@
       <?php endfor; ?>
 
       <!-- Paginação -->
-       <div class="container text-center">
-      <div class="flex items-center justify-center space-x-2 bg-transparente py-4">
-        <?php if ($paginaAtual > 1): ?>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php3?pagina=1">Primeira</a>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
-        <?php else: ?>
-          <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Primeira</button>
-          <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Anterior</button>
-        <?php endif; ?>
-
-        <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
-          <?php if ($i == $paginaAtual): ?>
-            <button class="bg-green-600 text-white px-4 py-1 rounded"><?= $i ?></button>
+      <div class="container text-center">
+        <div class="flex items-center justify-center space-x-2 bg-transparente py-4">
+          <?php if ($paginaAtual > 1): ?>
+            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php3?pagina=1">Primeira</a>
+            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/index.php?pagina=<?= $paginaAtual - 1 ?>">Anterior</a>
           <?php else: ?>
-            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $i ?>"><?= $i ?></a>
+            <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Primeira</button>
+            <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Anterior</button>
           <?php endif; ?>
-        <?php endfor; ?>
 
-        <?php if ($paginaAtual < $totalPaginas): ?>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $paginaAtual + 1 ?>">Próxima</a>
-          <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $totalPaginas ?>">Última</a>
-        <?php else: ?>
-          <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Próxima</button>
-          <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Última</button>
-        <?php endif; ?>
+          <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+            <?php if ($i == $paginaAtual): ?>
+              <button class="bg-green-600 text-white px-4 py-1 rounded"><?= $i ?></button>
+            <?php else: ?>
+              <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $i ?>"><?= $i ?></a>
+            <?php endif; ?>
+          <?php endfor; ?>
 
-        <span class="text-gray-400 ml-4"><?= $totalMangas ?> itens</span>
+          <?php if ($paginaAtual < $totalPaginas): ?>
+            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $paginaAtual + 1 ?>">Próxima</a>
+            <a class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-800/20" href="/anime_site/paginas/pag.php?pagina=<?= $totalPaginas ?>">Última</a>
+          <?php else: ?>
+            <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Próxima</button>
+            <button class="border border-green-600 text-green-600 px-4 py-1 rounded opacity-50" disabled>Última</button>
+          <?php endif; ?>
+
+          <span class="text-gray-400 ml-4"><?= $totalMangas ?> itens</span>
         </div>
       </div>
     </div>

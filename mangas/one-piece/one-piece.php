@@ -11,8 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Volume 1</h5>
                     <p class="card-text">O início da jornada de Luffy em busca do One Piece.</p>
-                    <a href="./vol1.php" class="btn btn-outline-light btn-sm">Ler Volume</a>
-                    " class="btn btn-outline-light btn-sm">Ler Volume</a>
+                    <a href="./op-vol1.php" class="btn btn-outline-light btn-sm">Ler Volume</a>
                 </div>
             </div>
         </div>
@@ -40,6 +39,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
