@@ -1,17 +1,18 @@
 <?php
-  $currentPath = $_SERVER['PHP_SELF'];
+$currentPath = $_SERVER['PHP_SELF'];
 
-  if (strpos($currentPath, '/mangas/') !== false) {
-    $basePath = '../../';
-  } elseif (strpos($currentPath, '/paginas/') !== false) {
-    $basePath = '../';
-  } else {
-    $basePath = '';
-  };
+if (strpos($currentPath, '/mangas/') !== false) {
+  $basePath = '../../';
+} elseif (strpos($currentPath, '/paginas/') !== false) {
+  $basePath = '../';
+} else {
+  $basePath = '';
+};
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +32,7 @@
   <title>WHmanga</title>
 </head>
 
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-custom px-4">
     <a class="navbar-brand d-flex align-items-center" href="<?= $basePath ?>index.php">
@@ -40,6 +42,18 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <!--botão de login-->
+    <?php session_start(); ?>
+    <div class="login-area">
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <span>Olá, <?= htmlspecialchars($_SESSION['usuario']['nome_login']) ?>!</span>
+        <a href="logout.php">Sair</a>
+      <?php else: ?>
+        <a href="login.php">Login</a>
+      <?php endif; ?>
+    </div>
+
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <form class="d-flex me-3">

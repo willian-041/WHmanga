@@ -23,16 +23,16 @@ $mangas = array_slice($todosMangas, $offset, $mangasPorPagina);
                     <?php for ($j = $i; $j < $i + 3 && $j < count($mangas); $j++): ?>
                         <?php $manga = $mangas[$j]; ?>
                         <div class="col-md-4 d-flex justify-content-center">
-                            <div class="manga-card">
+                            <div class="manga-card w-100" onclick="window.location.href='<?= $manga['link'] ?>'" style="cursor: pointer;">
                                 <img src="/anime_site/<?= $manga['capa'] ?>" class="manga-cover" alt="<?= $manga['titulo'] ?>">
                                 <span class="manga-title"><?= $manga['titulo'] ?></span>
-                                <?php foreach ($manga['capitulos'] as $capitulo): ?>
+                                <?php foreach ($manga['Volumes'] as $Volumes): ?>
                                     <div class="manga-chapter">
-                                        <span class="chapter-number">Capítulo <?= $capitulo['numero'] ?></span>
-                                        <span class="chapter-time" data-time="<?= $capitulo['data'] ?>">
-                                            <?= isset($capitulo['tempo']) && $capitulo['tempo'] ? $capitulo['tempo'] : '' ?>
+                                        <span class="chapter-number">Volumes <?= $Volumes['numero'] ?></span>
+                                        <span class="chapter-time" data-time="<?= $Volumes['data'] ?>">
+                                            <?= isset($Volumes['tempo']) && $Volumes['tempo'] ? $Volumes['tempo'] : '' ?>
                                         </span>
-                                        <span class="chapter-icon">🟡</span>
+                                        <span class="chapter-icon">🔘</span>
                                     </div>
                                 <?php endforeach; ?>
                             </div>

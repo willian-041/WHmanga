@@ -3,8 +3,10 @@ body {
   background-color: #0f0f0f;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
+/* NAVBAR */
 .navbar-custom {
   background-color: #ae55f1;
   padding-top: 10px;
@@ -32,6 +34,7 @@ body {
   z-index: 1000;
 }
 
+/* MANGÁ */
 .manga-feed {
   max-height: 75vh;
   overflow-y: auto;
@@ -76,6 +79,7 @@ body {
   min-height: 100vh;
 }
 
+/* CARROSSEL */
 .manga-carousel-container {
   background-color: #1c1c1c;
   border-radius: 8px;
@@ -94,12 +98,19 @@ body {
 }
 
 .carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.carousel-item.active {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 350px;
-  overflow: hidden;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .carousel-bg {
@@ -158,23 +169,55 @@ body {
   overflow: hidden;
 }
 
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* LOGIN */
+.login-container {
+  background-color: #1e1e1e;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
+  max-width: 400px;
+  margin: 50px auto; /* Centralizar verticalmente sem usar flex no body */
 }
 
-.carousel-item.active {
-  position: relative;
-  opacity: 1;
-  pointer-events: auto;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Responsividade */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+.erro {
+  color: #ff5252;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .min-height {
     min-height: auto;
@@ -211,7 +254,6 @@ body {
     justify-content: center;
   }
 }
-/* Card manga */
 
 
 
